@@ -1,0 +1,164 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+  font-family: 'Inter', sans-serif;
+  flex-wrap: wrap;
+}
+
+/* LEFT SECTION */
+.leftSection {
+  flex: 2;
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  min-width: 700px;
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #1e3a8a;
+}
+
+.section {
+  margin-bottom: 28px;
+}
+
+.section h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1f2937;
+}
+
+.travellerSection input,
+.contactDetails input {
+  width: 100%;
+  margin: 6px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.btnLogin {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: 0.3s ease;
+}
+
+.btnLogin:hover {
+  background: #1e40af;
+}
+
+.addonItem {
+  background: #f8fafc;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+/* RIGHT SECTION */
+.rightSection {
+  flex: 1;
+  position: sticky;
+  top: 40px;
+  height: fit-content;
+  min-width: 320px;
+}
+
+.priceBox {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.priceBox h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.priceBox p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #374151;
+}
+
+.finalPrice {
+  font-size: 28px;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.perPerson {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.btnProceed {
+  margin-top: 20px;
+  background: #16a34a;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s ease;
+}
+
+.btnProceed:hover {
+  background: #15803d;
+}
+
+.travellerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.counter button {
+  background-color: #0d6efd;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.counter button:hover {
+  background-color: #0b5ed7;
+}
+
+.counter span {
+  font-size: 1rem;
+  font-weight: bold;
+}

@@ -1,0 +1,191 @@
+.container {
+  padding: 40px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.locationHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.headerTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.locationBtn {
+  background-color: #e2e8f0;
+  border: none;
+  border-radius: 12px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+.locationBtn:hover {
+  background-color: #cbd5e1;
+}
+.activeLocationBtn {
+  background-color: #22c55e;
+  color: #fff;
+}
+
+/* ---------- Existing Styles ---------- */
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #0f172a;
+}
+
+.feedContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.userRow {
+  display: flex;
+  gap: 20px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  align-items: flex-start;
+}
+
+.leftSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.imageSlider {
+  position: relative;
+}
+
+.storyImage {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.prevBtn,
+.nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  padding: 5px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.prevBtn { left: 10px; }
+.nextBtn { right: 10px; }
+
+.userDescription {
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.rightSection {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.liveBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.uploadedLabel {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.videoPlayer {
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.followBtn {
+  background-color: #22c55e;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 5px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.followBtn:hover {
+  background-color: #16a34a;
+}
+
+.iconBtn {
+  background-color: #e2e8f0;
+  border: none;
+  border-radius: 12px;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+.iconBtn:hover {
+  background-color: #cbd5e1;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .userRow {
+    flex-direction: column;
+  }
+  .storyImage, .videoPlayer {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .storyImage, .videoPlayer {
+    height: 180px;
+  }
+  .actionButtons { gap: 5px; flex-wrap: wrap; }
+}
