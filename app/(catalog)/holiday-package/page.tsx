@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic";
 
 // 👉 FIX: Dynamically import CKEditor + ClassicEditor with proper types
-const CKEditor = dynamic(
-  () => import("@ckeditor/ckeditor5-react").then(mod => mod.CKEditor),
-  { ssr: false }
-);
+// const CKEditor = dynamic(
+//   () => import("@ckeditor/ckeditor5-react").then(mod => mod.CKEditor),
+//   { ssr: false }
+// );
 
 // const ClassicEditor = dynamic(
 //   () => import("@ckeditor/ckeditor5-build-classic"),

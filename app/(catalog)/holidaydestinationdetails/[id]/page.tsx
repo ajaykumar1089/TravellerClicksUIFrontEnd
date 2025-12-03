@@ -8,7 +8,7 @@ import CouponsBox from './CouponsBox'
 import Image from 'next/image';
 
 
-const Slider = dynamic(() => import('react-slick'), { ssr: false })
+//const Slider = dynamic(() => import('react-slick'), { ssr: false })
 
 const API_BASE_URL = 'http://127.0.0.1:8000/'
 
@@ -76,9 +76,9 @@ export default function DestinationDetailsPage() {
   const [descriptiondes, setDescription] = useState<string>("");
 
   // Dynamically import CKEditor (so it only loads on client side)
-  const CKEditor = dynamic(() => import("@ckeditor/ckeditor5-react").then(mod => mod.CKEditor), {
-    ssr: false,
-  });
+  // const CKEditor = dynamic(() => import("@ckeditor/ckeditor5-react").then(mod => mod.CKEditor), {
+  //   ssr: false,
+  // });
   // const ClassicEditor = dynamic(() => import("@ckeditor/ckeditor5-build-classic"), {
   //   ssr: false,
   // });
@@ -277,7 +277,7 @@ export default function DestinationDetailsPage() {
       <div className={styles['destination-card']}>
         {/* Image Slider */}
         <div className={styles['destination-slider']}>
-          <Slider {...sliderSettings}>
+          {/* <Slider {...sliderSettings}>
             {destination.all_images && destination.all_images.length > 0 ? (
               destination.all_images.map((img, index) => (
                 <div key={index}>
@@ -295,7 +295,7 @@ export default function DestinationDetailsPage() {
                 className="w-full h-[450px] object-cover rounded-lg"
               />
             )}
-          </Slider>
+          </Slider> */}
         </div>
 
         {/* Details + Tabs + Pricing */}
