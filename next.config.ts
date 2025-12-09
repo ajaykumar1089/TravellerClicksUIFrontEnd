@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    turbo: false,        // Disable Turbopack
-    optimizeCss: false,  // Disable LightningCSS
+    optimizeCss: false,     // disable LightningCSS
+  },
+  // force webpack instead of Turbopack
+  webpack: (config) => {
+    return config;
   },
 };
 
