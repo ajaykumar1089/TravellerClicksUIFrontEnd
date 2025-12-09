@@ -1,12 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config) => {
-    return config;
-  },
-  
-  // Disable Turbopack + LightningCSS
   experimental: {
-    turbo: false,
-    optimizeCss: false,
-   
+    turbo: false,        // Disable Turbopack
+    optimizeCss: false,  // Disable LightningCSS
+  },
+};
 
+module.exports = nextConfig;
