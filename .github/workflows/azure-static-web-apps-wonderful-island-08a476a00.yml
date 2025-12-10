@@ -29,7 +29,7 @@ jobs:
 
       - name: Build project (force webpack)
         run: npx next build --webpack
-        working-directory: ./frontend
+        working-directory: ./
 
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
