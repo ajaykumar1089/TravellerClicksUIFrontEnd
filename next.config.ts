@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',          // required for static export
+  output: 'export',          //dev branch update required for static export
   trailingSlash: true,       // recommended for Azure
   images: {
     unoptimized: true,
