@@ -1,12 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    optimizeCss: false,     // disable LightningCSS
+  output: 'export',          // required for static export
+  trailingSlash: true,       // recommended for Azure
+  images: {
+    unoptimized: true,
   },
-  // force webpack instead of Turbopack
+
+  // IMPORTANT: Disable Turbopack inside CI to avoid WorkerError
   webpack: (config) => {
     return config;
   },
+
+  // or if you want turbopack but with empty config:
+  // turbopack: {},
 };
 
 module.exports = nextConfig;
+
