@@ -30,7 +30,7 @@ interface HolidayPackageCardProps {
 
 const HolidaypackageCard: React.FC<HolidayPackageCardProps> = ({ holidaypackage }) => {
   const [isFavorite, setIsFavorite] = React.useState(false)
-const API_BASE_URL ='https://backend-82om.onrender.com/api' //process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api'
+const API_BASE_URL ='https://backend-82om.onrender.com' //process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api'
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.preventDefault()

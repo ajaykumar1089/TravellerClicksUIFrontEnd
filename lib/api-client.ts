@@ -149,7 +149,7 @@ class ApiClient {
       })
     }
     const endpoint = `/holidaypackages/?${queryParams.toString()}`
-    return this.makeRequest<FulltourListResponse>(endpoint)
+    return this.makeRequest<HolidayPackageListResponse>(endpoint)
   }
 
   async getFulltour(id: string) {
@@ -434,6 +434,13 @@ export interface FulltourListResponse {
   next: string | null
   previous: string | null
   results: Fulltour[]
+}
+
+export interface HolidayPackageListResponse {
+  count: number
+  next: string | null
+  previous: string | null
+  results: Holidaypackage[]
 }
 
 

@@ -11,7 +11,7 @@ import { AddLocationAltTwoTone } from '@mui/icons-material'
 
 const Slider = dynamic(() => import('react-slick').then(mod => mod.default), { ssr: false }) as unknown as ComponentType<any>
 
-const API_BASE_URL = 'https://backend-82om.onrender.com/'
+const API_BASE_URL = 'https://backend-82om.onrender.com'
 
 interface PickupLocation {
   id: number
@@ -88,7 +88,7 @@ export default function DestinationDetailsPage() {
     const fetchItineraries = async () => {
       try {
         const apiUrl =
-          `${API_BASE_URL}api/holidaypackages/itineraries/?holidaypackage=${id}`
+          `${API_BASE_URL}/api/holidaypackages/itineraries/?holidaypackage=${id}`
         //  : 'http://127.0.0.1:8000/api/fulltours/itineraries/';
         const res = await fetch(apiUrl, {
           next: { revalidate: 0 },
@@ -117,7 +117,7 @@ export default function DestinationDetailsPage() {
 
     const fetchDestination = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}api/holidaypackages/${id}/`, {
+        const res = await fetch(`${API_BASE_URL}/api/holidaypackages/${id}/`, {
 
           next: { revalidate: 0 },
         })
