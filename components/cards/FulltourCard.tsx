@@ -48,10 +48,10 @@ const FulltourCard: React.FC<FulltourCardProps> = ({ fulltour }) => {
 
   const getImageSrc = () => {
     if (fulltour.primary_image) {
-      return `http://127.0.0.1:8000${fulltour.primary_image}`
+      return `https://backend-82om.onrender.com${fulltour.primary_image}`
     }
     if (fulltour.all_images && fulltour.all_images.length > 0) {
-      return `http://127.0.0.1:8000${fulltour.all_images[0]}`
+      return `https://backend-82om.onrender.com${fulltour.all_images[0]}`
     }
     return '/images/fulltours/fulltour-placeholder.svg'
   }

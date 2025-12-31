@@ -17,40 +17,47 @@ import {
   Hotel,
   Hiking,
   AccountBalance,
+  GasMeter,
+  TravelExplore,
+  TravelExploreTwoTone,
+  CardTravel,
+  FlightTakeoffTwoTone,
+  TempleHindu,
+  TerrainSharp,
+  TempleBuddhistRounded,
+  HolidayVillage,
+  HolidayVillageOutlined,
+  TourRounded,
+  LocalDrink,
+  NoteAltRounded,
+  LuggageTwoTone,
 } from '@mui/icons-material'
 import Link from 'next/link'
+import { Poor_Story, Story_Script } from 'next/font/google'
 
 const HomePage = () => {
   const services = [
     {
       title: 'Spiritual Tour Packages',
       description: 'Spiritual tour packages around the globe',
-      icon: <DirectionsCar sx={{ fontSize: 40, color: 'secondary.main' }} />,
+      icon: <TempleBuddhistRounded sx={{ fontSize: 40, color: 'secondary.main' }} />,
       href: '/full-tour',
       color: 'secondary.main',
     },
-     {
-      title: 'Pilgrimage Tour Packages',
-      description: 'Pilgrimage tour packages around the globe',
-      icon: <DirectionsCar sx={{ fontSize: 40, color: 'secondary.main' }} />,
-      href: '/full-tour',
-      color: 'secondary.main',
-    },
-     {
-      title: 'Holidays Tour Packages',
-      description: 'Holidays tour packages around the globe',
-      icon: <DirectionsCar sx={{ fontSize: 40, color: 'secondary.main' }} />,
+    {
+      title: 'Holiday Destinations Tour Packages',
+      description: 'Holiday tour packages around the globe',
+      icon: <LuggageTwoTone sx={{ fontSize: 40, color: 'secondary.main' }} />,
       href: '/full-tour',
       color: 'secondary.main',
     },
     {
       title: 'Travel Stories',
-      description:
-        'Your sweet travel stories — from camping to lagoons and hill stations',
-      icon: <RvHookup sx={{ fontSize: 40, color: 'success.main' }} />,
+      description: 'Your sweet travel memories',
+      icon: <NoteAltRounded sx={{ fontSize: 40, color: 'secondary.main' }} />,
       href: '/travel-stories',
-      color: 'success.main',
-    },
+      color: 'secondary.main',
+    },   
   ]
 
   return (
@@ -64,19 +71,19 @@ const HomePage = () => {
                 src={require("/public/videos/Homepagevideo.mp4")}
                 alt="img"
               /> */}
-      <video
-  autoPlay
-  loop
-  muted
-  playsInline
-  style={{
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  }}
->
-  <source src="/videos/homepagevideo.mp4" type="video/mp4" />
-</video>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        >
+          <source src="/videos/homepagevideo.mp4" type="video/mp4" />
+        </video>
 
         {/* Transparent Overlay */}
         <Box
@@ -93,7 +100,6 @@ const HomePage = () => {
             px: 2,
           }}
         >
-
           <Container maxWidth="md">
             <Typography
               variant="h1"
@@ -123,7 +129,6 @@ const HomePage = () => {
               Experience premium spiritual tourism packages — meditate, relax, and
               explore sacred destinations. Share your travel memories and stories with the world.
             </Typography>
-
             <Button
               component={Link}
               href="/full-tour"
@@ -175,9 +180,9 @@ const HomePage = () => {
           </Typography>
         </Box>
 
-        {/* <Grid container spacing={4}>
+         <Grid container spacing={4}>
           {services.map((service) => (
-            <Grid item xs={12} sm={6} md={4} key={service.title}>
+            <Grid  key={service.title}>
               <Card
                 component={Link}
                 href={service.href}
@@ -215,7 +220,7 @@ const HomePage = () => {
               </Card>
             </Grid>
           ))}
-        </Grid> */}
+        </Grid>
       </Container>
 
       {/* 🌍 CTA Section */}

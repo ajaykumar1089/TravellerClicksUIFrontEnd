@@ -30,6 +30,7 @@ interface HolidayPackageCardProps {
 
 const HolidaypackageCard: React.FC<HolidayPackageCardProps> = ({ holidaypackage }) => {
   const [isFavorite, setIsFavorite] = React.useState(false)
+const API_BASE_URL ='https://backend-82om.onrender.com/api' //process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api'
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -48,10 +49,10 @@ const HolidaypackageCard: React.FC<HolidayPackageCardProps> = ({ holidaypackage 
 
   const getImageSrc = () => {
     if (holidaypackage.primary_image) {
-      return `http://127.0.0.1:8000${holidaypackage.primary_image}`
+      return `${API_BASE_URL}${holidaypackage.primary_image}`
     }
     if (holidaypackage.all_images && holidaypackage.all_images.length > 0) {
-      return `http://127.0.0.1:8000${holidaypackage.all_images[0]}`
+      return `${API_BASE_URL}${holidaypackage.all_images[0]}`
     }
     return '/images/holidaypackages/holidaypackage-placeholder.svg'
   }

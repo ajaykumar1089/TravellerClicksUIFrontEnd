@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useMsal } from '@azure/msal-react'
 import {
   AppBar,
   Toolbar,
@@ -24,6 +25,8 @@ import {
 import Link from 'next/link'
 
 const TopMenuBar = () => {
+  const { accounts, instance } = useMsal()
+  const user = accounts?.[0]
   const theme = useTheme()
   const isMobile = useMediaQuery('(max-width:900px)')
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
@@ -125,7 +128,7 @@ const TopMenuBar = () => {
                   fontSize: { xs: '1.25rem', sm: '1.5rem' },
                 }}
               >
-                <img src='/images/Logo.png'/>
+                <img src='/images/Logo.png'  alt="TravellerClicks logo"/>
               </Typography>
             </Box>
 
@@ -160,8 +163,8 @@ const TopMenuBar = () => {
                   }}
                 >
                   Spiritual Tour Packages
-                </Button>                
-                <Button
+                </Button>
+                {/* <Button
                   component={Link}
                   href="/Bharat-Bhraman"
                   sx={{
@@ -173,8 +176,8 @@ const TopMenuBar = () => {
                     '&:hover': { bgcolor: 'grey.50' },
                   }}
                 >
-                 Government Tourism
-                </Button>
+                 Government Sponcered Tourism
+                </Button> */}
 
                 {/* <Button
                   component={Link}
@@ -206,7 +209,7 @@ const TopMenuBar = () => {
                   Holiday Package
                 </Button>
 
-               {/* <Button
+                {/* <Button
                   component={Link}
                   href="/guided-bike-trips"
                   sx={{
@@ -241,7 +244,10 @@ const TopMenuBar = () => {
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               {!isMobile && (
                 <>
-                  <Button
+
+
+
+                  {/* <Button
                     component={Link}
                     href="/login"
                     variant="outlined"
@@ -254,6 +260,41 @@ const TopMenuBar = () => {
                   >
                     Login
                   </Button>
+                  */}
+                  {user ? (
+                    <>
+                      <Typography sx={{ mr: 2 }}>
+                        {user.name}
+                      </Typography>
+                      <Button component={Link}
+                        href="/login"
+                        variant="outlined"
+                        size="small"
+                        sx={{
+                          textTransform: 'none',
+                          borderRadius: '6px',
+                          minWidth: '80px',
+                        }}
+
+                        onClick={() => instance.logoutPopup()}
+                      >
+                        Logout
+                      </Button>
+                    </>
+                  ) : (
+                    <Button component={Link}
+                      href="/login"
+                      variant="outlined"
+                      size="small"
+                      sx={{
+                        textTransform: 'none',
+                        borderRadius: '6px',
+                        minWidth: '80px',
+                      }}>
+                      Login
+                    </Button>
+                  )}
+
                   <Button
                     component={Link}
                     href="/register"
@@ -290,5 +331,4 @@ const TopMenuBar = () => {
     </>
   )
 }
-
 export default TopMenuBar

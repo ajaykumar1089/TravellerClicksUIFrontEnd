@@ -14,6 +14,7 @@ import {
   Checkbox,
 } from '@mui/material'
 import { Search } from '@mui/icons-material'
+import { Dayjs } from 'dayjs'
 
 interface City {
   id: number
@@ -21,9 +22,19 @@ interface City {
   state?: string
 }
 
+interface Filters {
+  cities: any[]
+  city?: string
+  from_date?: Dayjs | null
+  to_date?: Dayjs | null
+  pickup_locations?: string[]
+  price_min?: string
+  price_max?: string
+}
+
 interface CityFilterProps {
-  filters: { cities?: number[] }
-  handleFilterChange: (key: string, value: number[]) => void
+  filters: Filters
+  handleFilterChange: (key: string, value: any) => void
 }
 
 export default function CityFilter({ filters, handleFilterChange }: CityFilterProps) {
@@ -99,7 +110,7 @@ export default function CityFilter({ filters, handleFilterChange }: CityFilterPr
                 control={
                   <Checkbox
                     size="small"
-                    checked={filters.cities?.includes(city.id) || false}
+                   // checked={filters.cities?.includes(city.id) || false}
                     onChange={() => handleToggleCity(city.id)}
                   />
                 }

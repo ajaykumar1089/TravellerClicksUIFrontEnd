@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Providers from './providers'
 import { Inter } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import { ThemeProvider } from '@mui/material/styles'
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+           <Providers>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -32,6 +34,7 @@ export default function RootLayout({
             </main>
           </ThemeProvider>
         </AppRouterCacheProvider>
+        </Providers>
       </body>
     </html>
   )
