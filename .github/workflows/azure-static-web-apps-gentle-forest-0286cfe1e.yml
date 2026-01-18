@@ -17,6 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          node-version: '18'
           submodules: true
           lfs: false
       - name: Build And Deploy
@@ -44,3 +45,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GENTLE_FOREST_0286CFE1E }}
           action: "close"
+
