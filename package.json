@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "start": "next start -p $PORT",
-    "export": "next export"   
+    "start": "next start -p $PORT" 
   },
   "engines": {
     "node": ">=20.9.0"
