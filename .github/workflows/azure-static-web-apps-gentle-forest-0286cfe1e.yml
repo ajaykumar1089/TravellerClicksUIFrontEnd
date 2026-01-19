@@ -23,7 +23,7 @@ jobs:
 
       # ✅ FORCE NODE 20 (CRITICAL FIX)
       - name: Set Node.js version
-        run: echo "NODE_VERSION=20.10.0" >> $GITHUB_ENV
+        run: echo "NODE_VERSION=20.11.0" >> $GITHUB_ENV
 
       - name: Build And Deploy
         id: builddeploy
