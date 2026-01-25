@@ -68,16 +68,23 @@ const TopMenuBar = () => {
           onClick={toggleMobileDrawer}
           sx={{ '&:hover': { bgcolor: 'grey.50' }, cursor: 'pointer' }}
         >
-          <ListItemText primary="full tour" />
+          <ListItemText primary="Spiritual Tour" />
         </ListItem>
-
+     <ListItem
+          component={Link}
+          href="/holiday-package"
+          onClick={toggleMobileDrawer}
+          sx={{ '&:hover': { bgcolor: 'grey.50' }, cursor: 'pointer' }}
+        >
+          <ListItemText primary="Holiday Package" />
+        </ListItem>
         <ListItem
           component={Link}
           href="/travel-stories"
           onClick={toggleMobileDrawer}
           sx={{ '&:hover': { bgcolor: 'grey.50' }, cursor: 'pointer' }}
         >
-          <ListItemText primary="User stories" />
+          <ListItemText primary="Stories" />
         </ListItem>
 
         <Divider sx={{ my: 1 }} />
@@ -150,7 +157,7 @@ const TopMenuBar = () => {
                   Bike Rentals
                 </Button> */}
 
-                <Button
+                {/* <Button
                   component={Link}
                   href="/full-tour"
                   sx={{
@@ -163,7 +170,7 @@ const TopMenuBar = () => {
                   }}
                 >
                   Spiritual Tour Packages
-                </Button>
+                </Button> */}
                 {/* <Button
                   component={Link}
                   href="/Bharat-Bhraman"

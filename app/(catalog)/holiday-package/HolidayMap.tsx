@@ -41,7 +41,7 @@ export default function HolidayMap({
             <div
               style={{ cursor: "pointer", textAlign: "center" }}
               onClick={() =>
-                router.push(`/holidaydestinationdetails/${d.id}`)
+                router.push(`/holidaydestinationdetails/?${d.id}`)
               }
             >
               <img

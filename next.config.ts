@@ -25,26 +25,52 @@
 
 // module.exports = nextConfig;
 
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   output: 'export',
+//   reactStrictMode: true,
+//   images: {
+//     unoptimized: true, // REQUIRED for static export
+//   },
+// };
 
+// module.exports = nextConfig;
 
-
-import type { NextConfig } from 'next'
-
-const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  output: 'standalone', // REQUIRED for Azure App Service
-
-  images: {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**',
+        protocol: 'http',
+        hostname: '127.0.0.1',
+        port: '8000',
+        pathname: '/media/**',
       },
     ],
   },
+  // output: 'export',
+  reactStrictMode: true
 }
 
-export default nextConfig
+module.exports = nextConfig
+
+// import type { NextConfig } from 'next'
+
+// const nextConfig: NextConfig = {
+//   reactStrictMode: true,
+//   output: 'export', // REQUIRED for Azure App Service
+
+//   images: {
+//     remotePatterns: [
+//       {
+//         protocol: 'https',
+//         hostname: '**',
+//       },
+//     ],
+//   },
+// }
+
+// export default nextConfig
 
 
 

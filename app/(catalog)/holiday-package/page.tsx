@@ -1,9 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+
 import dynamic from "next/dynamic";
 import {
   Box,
+  Grid,
+  Button,
   Paper,
   Typography,
   Pagination,
@@ -17,7 +20,12 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 
 import HolidaypackageCard from "@/components/cards/HolidayPackageCard";
+
+
+
 import { apiClient, Holidaypackage } from "@/lib/api-client";
+
+import TourFilters from "@/components/filters/TourFilters";
 
 /* ✅ Dynamic Map Import (NO SSR) */
 const HolidayMap = dynamic(() => import("./HolidayMap"), {
@@ -54,18 +62,20 @@ const destinations = [
 ];
 
 export default function HolidayPackagePage() {
+  const [priceRange, setPriceRange] = useState<[number, number]>([500, 50000]);
+  const [filters, setFilters] = useState<any>({});
+  const [openFilters, setOpenFilters] = useState(false);
+
   const [holidaypackages, setHolidaypackages] = useState<Holidaypackage[]>([]);
   const [loading, setLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
 
-  const [filters, setFilters] = useState<Filters>({
-    pickup_locations: [],
-  });
 
-  const [priceRange, setPriceRange] = useState<[number, number]>([100, 10000]);
-  const [viewMode, setViewMode] = useState<"list" | "map">("list");
+
+
+  // const [viewMode, setViewMode] = useState<"list" | "map">("list");
 
   /* ✅ Fetch Packages */
   const fetchHolidaypackages = async (page = 1) => {
@@ -103,84 +113,128 @@ export default function HolidayPackagePage() {
   };
 
   return (
+
+    
+
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Box sx={{ display: "flex", minHeight: "100vh" }}>
         {/* LEFT FILTER */}
-        <Paper sx={{ width: 280, p: 2 }}>
-          <Typography variant="h6">Filters</Typography>
+        <Box sx={{ p: { xs: 1, md: 3 } }}>
+          {/* HEADER */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              mb: 2,
+            }}
+          >
+            <Typography variant="h5">All Tours</Typography>
 
-          <Typography variant="subtitle2" sx={{ mt: 3 }}>
-            Price Range
-          </Typography>
+            {/* Mobile Filter Button */}
+            <Button
+              variant="outlined"
+              sx={{ display: { md: "none" } }}
+              onClick={() => setOpenFilters(true)}
+            >
+              Filters
+            </Button>
+          </Box>
 
-          <Slider
-            value={priceRange}
-            onChange={(_, v) => setPriceRange(v as [number, number])}
-            min={100}
-            max={10000}
-            step={100}
-            valueLabelDisplay="auto"
-          />
-
-          <Stack direction="row" spacing={1} mt={2}>
-            {[500, 1000, 2000].map((v) => (
-              <Chip
-                key={v}
-                label={`Under $${v}`}
-                onClick={() => setPriceRange([100, v])}
+          <Grid container spacing={3}>
+            {/* LEFT FILTER (Desktop) */}
+            <Grid
+              item
+              md={3}
+              sx={{ display: { xs: "none", md: "block" } }}
+            >
+              <TourFilters
+                priceRange={priceRange}
+                setPriceRange={setPriceRange}
+                filters={filters}
+                setFilters={setFilters}
+                open={openFilters}
+                onClose={() => setOpenFilters(false)}
               />
-            ))}
-          </Stack>
-        </Paper>
+            </Grid>
 
-        {/* RIGHT CONTENT */}
-        <Box sx={{ flex: 1, p: 3 }}>
-          <Typography variant="h4" fontWeight={700}>
-            {totalCount} Holiday Packages
-          </Typography>
+            {/* TOUR LIST */}
+            <Grid item xs={12} md={9}>
+              {/* 👉 Replace this with your tour cards */}
+             
+                Showing tours between ${priceRange[0]} – ${priceRange[1]}
 
-          <Stack direction="row" spacing={2} mt={2}>
-            <button onClick={() => setViewMode("list")}>List</button>
-            <button onClick={() => setViewMode("map")}>Map</button>
-          </Stack>
 
-          {/* LIST VIEW */}
-          {viewMode === "list" && (
-            <>
-              <Box
-                sx={{
-                  display: "grid",
-                  gridTemplateColumns:
-                    "repeat(auto-fill, minmax(300px, 1fr))",
-                  gap: 3,
-                  mt: 3,
-                }}
-              >
-                {holidaypackages.map((item) => (
-                  <HolidaypackageCard key={item.id} holidaypackage={item} />
-                ))}
-              </Box>
+                {/* RIGHT CONTENT */}
+                <Box sx={{ flex: 1, p: 3 }}>
+                  <Typography variant="h4" fontWeight={700}>
+                    {totalCount} Holiday Packages
+                  </Typography>
 
-              {totalPages > 1 && (
-                <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-                  <Pagination
-                    count={totalPages}
-                    page={currentPage}
-                    onChange={handlePageChange}
-                  />
+                  {/* <Stack direction="row" spacing={2} mt={2}>
+                    <button onClick={() => setViewMode("list")}>List</button>
+                    <button onClick={() => setViewMode("map")}>Map</button>
+                  </Stack> */}
+
+                  {/* LIST VIEW */}
+                  {/* {viewMode === "list" && ( */}
+                    <>
+                      <Box
+                        sx={{
+                          display: "grid",
+                          gridTemplateColumns:
+                            "repeat(auto-fill, minmax(300px, 1fr))",
+                          gap: 3,
+                          mt: 3,
+                        }}
+                      >
+                        {holidaypackages.map((item) => (
+                          <HolidaypackageCard key={item.id} holidaypackage={item} />
+                        ))}
+                      </Box>
+
+                      {totalPages > 1 && (
+                        <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+                          <Pagination
+                            count={totalPages}
+                            page={currentPage}
+                            onChange={handlePageChange}
+                          />
+                        </Box>
+                      )}
+                    </>
+                  {/* )} */}
+
+                  {/* MAP VIEW */}
+                  {/* {viewMode === "map" && ( */}
+                    {/* <Box sx={{ height: 600, mt: 3 }}>
+                      <HolidayMap destinations={destinations} />
+                    </Box> */}
+                  {/* )} */}
                 </Box>
-              )}
-            </>
-          )}
+          
 
-          {/* MAP VIEW */}
-          {viewMode === "map" && (
-            <Box sx={{ height: 600, mt: 3 }}>
-              <HolidayMap destinations={destinations} />
-            </Box>
-          )}
+              <pre style={{ background: "#f5f5f5", padding: 12 }}>
+                {JSON.stringify(filters, null, 2)}
+              </pre> 
+            </Grid>
+          </Grid>
+
+          {/* MOBILE FILTER DRAWER */}
+          <TourFilters
+            priceRange={priceRange}
+            setPriceRange={setPriceRange}
+            filters={filters}
+            setFilters={setFilters}
+            open={openFilters}
+            onClose={() => setOpenFilters(false)}
+          />
         </Box>
+
+
       </Box>
     </LocalizationProvider>
+
+  
   );
 }

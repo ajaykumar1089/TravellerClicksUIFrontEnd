@@ -33,8 +33,8 @@ const storytellers = [
     description:
       'Full spiritual journey across Japan exploring temples and meditation retreats.',
     images: [
-      'https://images.pexels.com/photos/1485526/pexels-photo-1485526.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1108096/pexels-photo-1108096.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'http://127.0.0.1:8000/media/holidaypackages/images/2_20260124_162713_10n_11d_december_2025.jpg',
+      'http://127.0.0.1:8000/media/holidaypackages/images/2_20260124_162713_10n_11d_december_2025.jpg',
     ],
     video: 'https://www.youtube.com/embed/U3R0XYtXc5k?autoplay=1&mute=1',
     isLive: true,

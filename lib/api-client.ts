@@ -1,4 +1,4 @@
-const API_BASE_URL ='https://backend-82om.onrender.com/api' //process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api'
+const API_BASE_URL ='http://127.0.0.1:8000/api' //process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api'
 
 export interface ApiResponse<T> {
   data: T

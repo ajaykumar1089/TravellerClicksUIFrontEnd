@@ -37,18 +37,18 @@ import { Poor_Story, Story_Script } from 'next/font/google'
 
 const HomePage = () => {
   const services = [
-    {
-      title: 'Spiritual Tour Packages',
-      description: 'Spiritual tour packages around the globe',
-      icon: <TempleBuddhistRounded sx={{ fontSize: 40, color: 'secondary.main' }} />,
-      href: '/full-tour',
-      color: 'secondary.main',
-    },
+    // {
+    //   title: 'Spiritual Tour Packages',
+    //   description: 'Spiritual tour packages around the globe',
+    //   icon: <TempleBuddhistRounded sx={{ fontSize: 40, color: 'secondary.main' }} />,
+    //   href: '/full-tour',
+    //   color: 'secondary.main',
+    // },
     {
       title: 'Holiday Destinations Tour Packages',
       description: 'Holiday tour packages around the globe',
       icon: <LuggageTwoTone sx={{ fontSize: 40, color: 'secondary.main' }} />,
-      href: '/full-tour',
+      href: '/holiday-package',
       color: 'secondary.main',
     },
     {
@@ -131,7 +131,7 @@ const HomePage = () => {
             </Typography>
             <Button
               component={Link}
-              href="/full-tour"
+              href="/holiday-package"
               variant="contained"
               size="large"
               sx={{

@@ -1,7 +1,7 @@
 // 'use client'
  import { apiClient, Fulltour, FilterOptionsFullTour } from '../../../lib/api-client'
 
- const API_BASE_URL = 'https://backend-82om.onrender.com/api'//process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api'
+ const API_BASE_URL = 'http://127.0.0.1:8000/api'//process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api'
 
 import { useEffect, useState } from 'react'
 import {
@@ -39,7 +39,7 @@ export default function CityFilter({ filters, handleFilterChange }: CityFilterPr
       }
       try {
         const res = await fetch(
-          `https://backend-82om.onrender.com/api/fulltours/cities/autocomplete/?q=${search}`
+          `http://127.0.0.1:8000/api/fulltours/cities/autocomplete/?q=${search}`
         )
         if (!res.ok) throw new Error('Failed to fetch')
         const data = await res.json()
